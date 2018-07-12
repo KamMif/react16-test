@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import Toggle from './Toggle/ToggleRenderPropsChilderen';
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,9 +12,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Toggle>
+          {({ on, toggle }) => (
+            <div>
+              { on && <h1>Show Me</h1> }
+              <button onClick={toggle}>Show /Hide</button>
+            </div>
+          )}
+        </Toggle>
       </div>
     );
   }
