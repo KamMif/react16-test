@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 
 import Toggle from './Toggle/ToggleRenderPropsChilderen';
+import Portal from './Portal';
+import Modal from './Portal/Modal';
 import logo from './logo.svg';
 import './App.css';
 
@@ -15,8 +17,10 @@ class App extends Component {
         <Toggle>
           {({ on, toggle }) => (
             <Fragment>
-              { on && <h1>Show Me</h1> }
-              <button onClick={toggle}>Show /Hide</button>
+              <button onClick={toggle}>Ligin</button>
+              <Modal on={on} toggle={toggle}>
+                <h1>Steel In Modal</h1>
+              </Modal>
             </Fragment>
           )}
         </Toggle>
